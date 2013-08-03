@@ -3,7 +3,7 @@ include <MCAD/polyholes.scad>;
 
 include <horn_defs.scad>;
 
-troll = karkat;
+troll = nepeta;
 hole_diameter = 1.7;
 hole_depth = 14;
 scale_factor = 1.00;
