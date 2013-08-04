@@ -4,11 +4,12 @@ include <MCAD/polyholes.scad>;
 include <horn_parts.scad>;
 include <horn_defs.scad>;
 
-troll = karkat;
+troll = karkat_grooved;
+compare = false;
+preview = false;
+scale_factor = 1.00;
 hole_diameter = 1.7;
 hole_depth = 14;
-scale_factor = 1.00;
-preview = false;
 
 $fn = 40;
 
