@@ -8,7 +8,7 @@ troll = karkat;
 hole_diameter = 1.7;
 hole_depth = 14;
 scale_factor = 1.00;
-preview = true;
+preview = false;
 
 $fn = 40;
 
@@ -16,7 +16,7 @@ module horn_from_array(array, hole_diameter, hole_depth, scale_factor) {
 	difference() {
 		union() {
 			// Thin disks for most of the slices
-			for(i = [0: len(array) - 3]) {
+			for (i = [0: len(array) - 3]) {
 				hull() {
 					disk_from_array(array[i], scale_factor);
 					disk_from_array(array[i+1], scale_factor);
@@ -36,7 +36,7 @@ module horn_from_array(array, hole_diameter, hole_depth, scale_factor) {
 	}
 }
 
-if(preview) {
+if (preview) {
 	translate([-30, 0, 0])
 	rotate([0, -45, 0])
 	horn_from_array(troll, hole_diameter, hole_depth, scale_factor);
@@ -45,6 +45,12 @@ if(preview) {
 	mirror([1, 0, 0])
 	rotate([0, -45, 0])
 	horn_from_array(troll, hole_diameter, hole_depth, scale_factor);
+} else if (compare) {
+	translate([-20, 0, 0])
+	horn_from_array(troll, hole_diameter, hole_depth, scale_factor);
+
+	translate([20, 0, 0])
+	horn_from_array(compare, hole_diameter, hole_depth, scale_factor);
 } else {
 	horn_from_array(troll, hole_diameter, hole_depth, scale_factor);
 }
